@@ -21,18 +21,13 @@ public class DataChart extends JFrame implements ActionListener {
     public DataChart(int id) {
         setTitle("Data chart");
         setSize(600, 400);
-        this.setLocationRelativeTo((Component)null);
-
-        // Add the chart panel to the frame
+        this.setLocationRelativeTo(null);
         add(createChartPanel(id));
-
-        // Display the frame
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     private JPanel createChartPanel(int id) {
-        // Create a JFreeChart bar chart and wrap it in a ChartPanel
         JFreeChart chart = createBarChart(id);
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new Dimension(500, 300));

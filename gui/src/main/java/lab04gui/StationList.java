@@ -11,16 +11,16 @@ import java.awt.event.ActionListener;
 public class StationList extends JFrame implements ActionListener {
     private JTextArea textArea1 = new JTextArea();
     JPanel buttonsPanel = new JPanel(new GridLayout(0, 1));
-    private JScrollPane scrollPane = new JScrollPane(buttonsPanel);
 
 
     StationList(){
         setVisible(true);
-        setTitle("Air quality");
+        setTitle("Station list");
         setTextArea1();
+        JScrollPane scrollPane = new JScrollPane(buttonsPanel);
         add(scrollPane, BorderLayout.CENTER);
         setSize(800, 500);
-        this.setLocationRelativeTo((Component)null);
+        this.setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     private void setTextArea1(){
@@ -37,12 +37,9 @@ public class StationList extends JFrame implements ActionListener {
         JButton button = new JButton("See data for station " + element);
         button.setPreferredSize(new Dimension(200, 50));
 
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Handle button click (you can add custom logic here)
-                new AirQualityIndex(id);
-            }
+        button.addActionListener(e -> {
+            // Handle button click (you can add custom logic here)
+            new AirQualityIndex(id);
         });
 
         return button;

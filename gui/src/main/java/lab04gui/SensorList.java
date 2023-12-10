@@ -10,19 +10,16 @@ import java.awt.event.ActionListener;
 
 public class SensorList extends JFrame implements ActionListener {
     private JButton closeButton = new JButton("Close");
-    private int stationID;
     JPanel buttonsPanel = new JPanel(new GridLayout(0, 1));
 
-    private JScrollPane scrollPane = new JScrollPane(buttonsPanel);
-
     SensorList(int id){
-        this.stationID = id;
         setVisible(true);
         setTitle("Sensor list");
         setText(id);
+        JScrollPane scrollPane = new JScrollPane(buttonsPanel);
         add(scrollPane, BorderLayout.CENTER);
         setSize(800, 500);
-        this.setLocationRelativeTo((Component)null);
+        this.setLocationRelativeTo(null);
         closeButton.addActionListener(this);
         add(closeButton, BorderLayout.SOUTH);
     }
@@ -49,12 +46,9 @@ public class SensorList extends JFrame implements ActionListener {
         JButton button = new JButton("See data chart for sensor: " + string);
         button.setPreferredSize(new Dimension(200, 50));
 
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Handle button click (you can add custom logic here)
-                new DataChart(id);
-            }
+        button.addActionListener(e -> {
+            // Handle button click (you can add custom logic here)
+            new DataChart(id);
         });
 
         return button;

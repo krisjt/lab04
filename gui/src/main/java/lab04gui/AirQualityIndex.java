@@ -11,8 +11,6 @@ import java.util.Map;
 
 public class AirQualityIndex extends JFrame implements ActionListener {
 
-    private JPanel labelsPanel;
-    private JPanel legendPanel;
     private Map<Integer, Color> idColorMap;
     private int id;
 
@@ -20,12 +18,12 @@ public class AirQualityIndex extends JFrame implements ActionListener {
         this.id = id;
         setTitle("Air quality index");
         initializeIdColorMap();
-        labelsPanel = new JPanel(new GridLayout(0, 1));
+        JPanel labelsPanel = new JPanel(new GridLayout(0, 1));
         for (AirQualityColor airQualityColor : AirQualityColor.getColorList(id)) {
             JLabel label = createLabel(airQualityColor);
             labelsPanel.add(label);
         }
-        legendPanel = createLegendPanel();
+        JPanel legendPanel = createLegendPanel();
 
         // Create a container panel to hold both labels and the legend
         JPanel containerPanel = new JPanel(new BorderLayout());
@@ -38,7 +36,7 @@ public class AirQualityIndex extends JFrame implements ActionListener {
         JButton closeButton = new JButton("Sensor list");
         closeButton.addActionListener(this);
         add(closeButton, BorderLayout.SOUTH);
-        this.setLocationRelativeTo((Component)null);
+        this.setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -73,10 +71,6 @@ public class AirQualityIndex extends JFrame implements ActionListener {
 
         return panel;
     }
-
-//    public static void main(String[] args) {
-//        new AirQualityIndex(52);
-//    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
