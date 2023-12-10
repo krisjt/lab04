@@ -21,10 +21,10 @@ public class SensorList extends JFrame implements ActionListener {
         setTitle("Sensor list");
         setText(id);
         add(scrollPane, BorderLayout.CENTER);
-        setSize(400, 300);
+        setSize(800, 500);
+        this.setLocationRelativeTo((Component)null);
         closeButton.addActionListener(this);
         add(closeButton, BorderLayout.SOUTH);
-        pack();
     }
 
     @Override

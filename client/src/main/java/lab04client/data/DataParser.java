@@ -27,7 +27,7 @@ public class DataParser {
         private static Data restDataParsing(String responseBody){
                 Gson gson = new Gson();
                 var array = gson.fromJson(responseBody, Data.class);
-                System.out.println(array);
+//                System.out.println(array);
                 return array;
         }
 }

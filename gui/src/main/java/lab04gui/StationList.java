@@ -19,9 +19,9 @@ public class StationList extends JFrame implements ActionListener {
         setTitle("Air quality");
         setTextArea1();
         add(scrollPane, BorderLayout.CENTER);
-        setSize(400, 300);
+        setSize(800, 500);
+        this.setLocationRelativeTo((Component)null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        pack();
     }
     private void setTextArea1(){
         StringBuilder string = new StringBuilder("Here are the measurement stations = \n");
@@ -29,7 +29,7 @@ public class StationList extends JFrame implements ActionListener {
             string.append("Station name = ").append(o.stationName).append(", adress street = ").append(o.adressStreet).append(", id = ").append(o.id).append(", city = ").append(o.city.name).append(".\n");
             buttonsPanel.add(createButton(o.stationName,o.id));
         }
-        System.out.println(string);
+//        System.out.println(string);
         textArea1.setText(string.toString());
     }
     private JButton createButton(String element, int id) {

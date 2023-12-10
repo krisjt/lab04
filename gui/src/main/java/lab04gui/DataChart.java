@@ -21,6 +21,7 @@ public class DataChart extends JFrame implements ActionListener {
     public DataChart(int id) {
         setTitle("Data chart");
         setSize(600, 400);
+        this.setLocationRelativeTo((Component)null);
 
         // Add the chart panel to the frame
         add(createChartPanel(id));
