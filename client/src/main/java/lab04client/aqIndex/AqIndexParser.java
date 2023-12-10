@@ -11,9 +11,6 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 public class AqIndexParser {
-    public static void main(String[] args) {
-        getRestData(52);
-    }
     public static Values getRestData(int id){
         String url = "https://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+id;
         HttpClient client = HttpClient.newHttpClient();

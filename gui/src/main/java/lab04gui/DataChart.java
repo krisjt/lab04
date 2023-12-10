@@ -30,10 +30,13 @@ public class DataChart extends JFrame implements ActionListener {
     private JPanel createChartPanel(int id) {
         JFreeChart chart = createBarChart(id);
         ChartPanel chartPanel = new ChartPanel(chart);
-        chartPanel.setPreferredSize(new Dimension(500, 300));
         JButton closeButton = new JButton("Close Chart");
+
+        chartPanel.setPreferredSize(new Dimension(500, 300));
         closeButton.addActionListener(this);
+
         add(closeButton, BorderLayout.SOUTH);
+
         return chartPanel;
     }
 
@@ -53,7 +56,7 @@ public class DataChart extends JFrame implements ActionListener {
 
         JFreeChart barChart = ChartFactory.createBarChart(
                 DataParser.getRestData(id).key,
-                "Concentration",
+                "Date of measurement",
                 "Values",
                 dataset,
                 PlotOrientation.VERTICAL,

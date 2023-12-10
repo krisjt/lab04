@@ -38,7 +38,6 @@ public class AirQualityColor {
         if(AqIndexParser.getRestData(id).pm25IndexLevel!=null)airQualityColors.add(new AirQualityColor("pm25IndexLevel", AqIndexParser.getRestData(id).pm25IndexLevel.id));
         if(AqIndexParser.getRestData(id).pm10IndexLevel!=null)airQualityColors.add(new AirQualityColor("pm10IndexLevel", AqIndexParser.getRestData(id).pm10IndexLevel.id));
 
-        System.out.println(airQualityColors);
         return airQualityColors;
     }
 

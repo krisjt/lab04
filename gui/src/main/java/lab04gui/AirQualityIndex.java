@@ -16,13 +16,20 @@ public class AirQualityIndex extends JFrame implements ActionListener {
 
     public AirQualityIndex(int id) {
         this.id = id;
+
         setTitle("Air quality index");
+
         initializeIdColorMap();
+
+        JButton closeButton = new JButton("Sensor list");
+        closeButton.addActionListener(this);
+
         JPanel labelsPanel = new JPanel(new GridLayout(0, 1));
         for (AirQualityColor airQualityColor : AirQualityColor.getColorList(id)) {
             JLabel label = createLabel(airQualityColor);
             labelsPanel.add(label);
         }
+
         JPanel legendPanel = createLegendPanel();
 
         JPanel containerPanel = new JPanel(new BorderLayout());
@@ -30,10 +37,9 @@ public class AirQualityIndex extends JFrame implements ActionListener {
         containerPanel.add(legendPanel, BorderLayout.EAST);
 
         add(containerPanel, BorderLayout.CENTER);
-        setSize(600, 300);
-        JButton closeButton = new JButton("Sensor list");
-        closeButton.addActionListener(this);
         add(closeButton, BorderLayout.SOUTH);
+
+        setSize(600, 300);
         this.setLocationRelativeTo(null);
         setVisible(true);
     }

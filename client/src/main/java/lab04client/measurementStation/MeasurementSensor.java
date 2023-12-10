@@ -1,14 +1,14 @@
 package lab04client.measurementStation;
 
-public class OneMeasurementStation {
+public class MeasurementSensor {
     public int id;
     public int stationId;
     public Param param;
-    public OneMeasurementStation(){}
+    public MeasurementSensor(){}
 
     @Override
     public String toString() {
-        return "OneMeasurementStation{" +
+        return "MeasurementSensor{" +
                 "id=" + id +
                 ", stationId=" + stationId +
                 ", param=" + param +

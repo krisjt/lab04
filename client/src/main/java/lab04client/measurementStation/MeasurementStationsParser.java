@@ -11,10 +11,6 @@ import java.time.temporal.ChronoUnit;
 
 
 public class MeasurementStationsParser {
-    public static void main(String[] args) {
-        getMeasurementStationsList();
-        getMeasurementStation(961);
-    }
     public static MeasurementStation[] getMeasurementStationsList(){
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://api.gios.gov.pl/pjp-api/rest/station/findAll")).timeout(Duration.of(10, ChronoUnit.SECONDS)).build();
@@ -29,19 +25,18 @@ public class MeasurementStationsParser {
         return gson.fromJson(responseBody, MeasurementStation[].class);
     }
 
-    public static OneMeasurementStation[] getMeasurementStation(int id){
+    public static MeasurementSensor[] getMeasurementStation(int id){
         String url = "https://api.gios.gov.pl/pjp-api/rest/station/sensors/"+id;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).timeout(Duration.of(10, ChronoUnit.SECONDS)).build();
         return  client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
-//                .thenAccept(System.out::println)
                 .thenApply(MeasurementStationsParser::measurementStationParsing)
                 .join();
     }
 
-    private static OneMeasurementStation[] measurementStationParsing(String responseBody){
+    private static MeasurementSensor[] measurementStationParsing(String responseBody){
         Gson gson = new Gson();
-        return gson.fromJson(responseBody, OneMeasurementStation[].class);
+        return gson.fromJson(responseBody, MeasurementSensor[].class);
     }
 }
