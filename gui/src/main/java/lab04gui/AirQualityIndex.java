@@ -12,7 +12,7 @@ import java.util.Map;
 public class AirQualityIndex extends JFrame implements ActionListener {
 
     private Map<Integer, Color> idColorMap;
-    private int id;
+    private final int id;
 
     public AirQualityIndex(int id) {
         this.id = id;
@@ -25,12 +25,10 @@ public class AirQualityIndex extends JFrame implements ActionListener {
         }
         JPanel legendPanel = createLegendPanel();
 
-        // Create a container panel to hold both labels and the legend
         JPanel containerPanel = new JPanel(new BorderLayout());
         containerPanel.add(labelsPanel, BorderLayout.CENTER);
         containerPanel.add(legendPanel, BorderLayout.EAST);
 
-        // Add the container panel to the frame
         add(containerPanel, BorderLayout.CENTER);
         setSize(600, 300);
         JButton closeButton = new JButton("Sensor list");
