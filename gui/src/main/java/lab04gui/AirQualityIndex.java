@@ -38,7 +38,7 @@ public class AirQualityIndex extends JFrame implements ActionListener {
         JButton closeButton = new JButton("Sensor list");
         closeButton.addActionListener(this);
         add(closeButton, BorderLayout.SOUTH);
-
+        this.setLocationRelativeTo((Component)null);
         setVisible(true);
     }
 
