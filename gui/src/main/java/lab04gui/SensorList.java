@@ -1,7 +1,7 @@
 package lab04gui;
 
+import lab04client.measurementStation.MeasurementSensor;
 import lab04client.measurementStation.MeasurementStationsParser;
-import lab04client.measurementStation.OneMeasurementStation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,7 +32,7 @@ public class SensorList extends JFrame implements ActionListener {
     }
 
     private void setText(int id){
-        for(OneMeasurementStation o : MeasurementStationsParser.getMeasurementStation(id)){
+        for(MeasurementSensor o : MeasurementStationsParser.getMeasurementStation(id)){
             String string2 = "Sensor id = " + o.id + ", parameter name = " + o.param.paramName;
             buttonsPanel.add(createButton(string2,o.id));
         }
