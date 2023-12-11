@@ -47,12 +47,12 @@ public class AirQualityIndex extends JFrame implements ActionListener {
     private void initializeIdColorMap() {
         idColorMap = new HashMap<>();
         idColorMap.put(-1, Color.GRAY);
-        idColorMap.put(0, Color.CYAN);
-        idColorMap.put(1, Color.GREEN);
-        idColorMap.put(2, Color.YELLOW);
-        idColorMap.put(3, Color.ORANGE);
-        idColorMap.put(4, Color.PINK);
-        idColorMap.put(5, Color.RED);
+        idColorMap.put(0, new Color(4,194,143));
+        idColorMap.put(1, new Color(23,191,11));
+        idColorMap.put(2, new Color(164,191,11));
+        idColorMap.put(3, new Color(247,223,5));
+        idColorMap.put(4, new Color(247,154,5));
+        idColorMap.put(5, new Color(247,74,5));
     }
 
     private JLabel createLabel(AirQualityColor myObject) {
